@@ -101,4 +101,4 @@ This project is open source and free to use for educational or internal business
 
 ## 💬 Contact
 
-For improvements, feel free to open a pull request on my GitHub account or contact me directly - josephdokhare@gmail.com
+For improvements, feel free to open a pull request on my GitHub account or contact me directly - savystat@gmail.com
