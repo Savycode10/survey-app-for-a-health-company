@@ -8,7 +8,7 @@ Deployed app at: https://mynexfordsurvey.onrender.com/
 ✅ Web Development with Flask
 - A simple and interactive web interface to collect user input.
 - Collects basic details: Age, Gender, Total Income, and Expenses.
-- 
+  
 ✅ Data Storage with MongoDB
 - Stores user-submitted data in MongoDB Atlas.
 - Expense categories are captured using checkboxes with text fields:
