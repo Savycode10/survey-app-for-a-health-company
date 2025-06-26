@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Spending Survey</title>
+  <style>
+    .expense-amount {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+    .expense-amount.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group input[type="number"],
+    .form-group select {
+      padding: 10px;
+      width: 100%;
+      max-width: 300px;
+      margin-top: 5px;
+    }
+    .expense-item {
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Income & Spending Survey</h2>
+  <form method="post">
+    <div class="form-group">
+      Age: <input type="number" name="age" required>
+    </div>
+    
+    <div class="form-group">
+      Gender:
+      <select name="gender">
+        <option value="" selected disabled>Select Gender</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      Total Income: <input type="number" name="income" required>
+    </div>
+
+    <h3>Expenses (Check and Fill):</h3>
+    
+    <div class="expense-item">
+      <label><input type="checkbox" class="expense-checkbox"> Utilities</label>
+      <input type="number" name="utilities" class="expense-amount">
+    </div>
+    
+    <div class="expense-item">
+      <label><input type="checkbox" class="expense-checkbox"> Entertainment</label>
+      <input type="number" name="entertainment" class="expense-amount">
+    </div>
+    
+    <div class="expense-item">
+      <label><input type="checkbox" class="expense-checkbox"> School Fees</label>
+      <input type="number" name="school_fees" class="expense-amount">
+    </div>
+    
+    <div class="expense-item">
+      <label><input type="checkbox" class="expense-checkbox"> Shopping</label>
+      <input type="number" name="shopping" class="expense-amount">
+    </div>
+    
+    <div class="expense-item">
+      <label><input type="checkbox" class="expense-checkbox"> Healthcare</label>
+      <input type="number" name="healthcare" class="expense-amount">
+    </div>
+    
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const checkboxes = document.querySelectorAll('.expense-checkbox');
+      const amounts = document.querySelectorAll('.expense-amount');
+
+      checkboxes.forEach((checkbox, index) => {
+        checkbox.addEventListener('change', function() {
+          if (this.checked) {
+            amounts[index].classList.add('active');
+            amounts[index].required = true;
+          } else {
+            amounts[index].classList.remove('active');
+            amounts[index].value = '';
+            amounts[index].required = false;
+          }
+        });
+        
+        // Initialize - if there's a value, check the box
+        if (amounts[index].value) {
+          checkbox.checked = true;
+          amounts[index].classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
